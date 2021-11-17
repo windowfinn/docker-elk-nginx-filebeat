@@ -74,6 +74,8 @@ services:
   filebeat:
     build: 
       context: filebeat/
+      args:
+        ELK_VERSION: $ELK_VERSION
     entrypoint: "filebeat -e -strict.perms=false"
     volumes:
       - /srv/dev-disk-by-uuid-f31a3c52-0c5c-4e99-a15d-4285c97f3fcc/docker/elk/filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
